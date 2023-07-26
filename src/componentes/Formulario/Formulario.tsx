@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import { useAdicionarParticipante } from "../../state/hook/useAdicionarParticipante";
 import { useMensagemDeErro } from "../../state/hook/useMensagemDeErro";
 
+import './Formulario.css';
+
 export default function Formulario() {
 
   const [nome, setNome] = useState('');
@@ -20,14 +22,16 @@ export default function Formulario() {
   }
 
   return (<form onSubmit={adicionarParticipante}>
-    <input
-      ref={inputRef}
-      value={nome}
-      onChange={e => setNome(e.target.value)}
-      type="text"
-      placeholder="Insira os nomes dos participantes"
-    />
-    <button disabled={!nome}>Adicionar</button>
-    {mensagemDeErro && <p role='alert'>{mensagemDeErro}</p>}
+    <div className="grupo-input-btn">
+      <input
+        ref={inputRef}
+        value={nome}
+        onChange={e => setNome(e.target.value)}
+        type="text"
+        placeholder="Insira os nomes dos participantes"
+      />
+      <button disabled={!nome}>Adicionar</button>
+    </div>
+    {mensagemDeErro && <p className="alerta erro" role='alert'>{mensagemDeErro}</p>}
   </form>);
 }
