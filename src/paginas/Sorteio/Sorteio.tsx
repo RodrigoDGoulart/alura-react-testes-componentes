@@ -35,6 +35,7 @@ export default function Sorteio() {
             placeholder="Selecione o seu nome"
             onChange={e => setParticipanteDaVez(e.target.value)}
           >
+            <option>Selecione o seu nome</option>
             {participantes.map(participante => (
               <option key={participante}>{participante}</option>
             ))}
